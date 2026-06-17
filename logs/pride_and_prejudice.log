@@ -1,0 +1,21 @@
+2026-06-18 06:48:05,065 | INFO | run name: pride_and_prejudice
+2026-06-18 06:48:05,065 | INFO | dataset: pride_and_prejudice
+2026-06-18 06:48:05,065 | INFO | data path: datasets\pride_and_prejudice.txt
+2026-06-18 06:48:05,065 | INFO | log file: logs\pride_and_prejudice.log
+2026-06-18 06:48:05,065 | INFO | device: cpu
+2026-06-18 06:48:05,065 | INFO | vocab size: 91
+2026-06-18 06:48:05,065 | INFO | parameters: 470,107
+2026-06-18 06:48:49,346 | INFO | epoch  0 | train loss 3.1671 | val loss 2.7585
+2026-06-18 06:49:38,994 | INFO | epoch  1 | train loss 2.6495 | val loss 2.5618
+2026-06-18 06:50:24,762 | INFO | epoch  2 | train loss 2.5269 | val loss 2.4689
+2026-06-18 06:51:07,558 | INFO | epoch  3 | train loss 2.4490 | val loss 2.4031
+2026-06-18 06:51:54,045 | INFO | epoch  4 | train loss 2.3941 | val loss 2.3294
+2026-06-18 06:52:39,333 | INFO | epoch  5 | train loss 2.3220 | val loss 2.2344
+2026-06-18 06:53:26,044 | INFO | epoch  6 | train loss 2.2319 | val loss 2.1349
+2026-06-18 06:54:56,398 | INFO | epoch  7 | train loss 2.1556 | val loss 2.0463
+2026-06-18 06:55:54,154 | INFO | epoch  8 | train loss 2.0869 | val loss 1.9756
+2026-06-18 06:56:33,681 | INFO | epoch  9 | train loss 2.0323 | val loss 1.9187
+2026-06-18 06:56:37,511 | INFO | saved loss history: results\pride_and_prejudice_history.json
+2026-06-18 06:56:37,511 | INFO | saved loss plot: results\pride_and_prejudice_loss.png
+2026-06-18 06:56:37,511 | INFO | saved final sample: results\pride_and_prejudice_sample.txt
+2026-06-18 06:56:37,631 | INFO | saved checkpoint: results\pride_and_prejudice.pt

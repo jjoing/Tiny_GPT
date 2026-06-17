@@ -1,0 +1,21 @@
+2026-06-18 06:39:55,214 | INFO | run name: frankenstein
+2026-06-18 06:39:55,214 | INFO | dataset: frankenstein
+2026-06-18 06:39:55,214 | INFO | data path: datasets\frankenstein.txt
+2026-06-18 06:39:55,214 | INFO | log file: logs\frankenstein.log
+2026-06-18 06:39:55,214 | INFO | device: cpu
+2026-06-18 06:39:55,214 | INFO | vocab size: 83
+2026-06-18 06:39:55,214 | INFO | parameters: 468,563
+2026-06-18 06:40:39,966 | INFO | epoch  0 | train loss 3.0811 | val loss 2.6386
+2026-06-18 06:41:28,867 | INFO | epoch  1 | train loss 2.5697 | val loss 2.4802
+2026-06-18 06:42:21,481 | INFO | epoch  2 | train loss 2.4782 | val loss 2.4192
+2026-06-18 06:43:10,982 | INFO | epoch  3 | train loss 2.4211 | val loss 2.3601
+2026-06-18 06:43:56,277 | INFO | epoch  4 | train loss 2.3594 | val loss 2.2970
+2026-06-18 06:44:37,969 | INFO | epoch  5 | train loss 2.3050 | val loss 2.2397
+2026-06-18 06:45:21,089 | INFO | epoch  6 | train loss 2.2366 | val loss 2.1759
+2026-06-18 06:46:15,613 | INFO | epoch  7 | train loss 2.1870 | val loss 2.1257
+2026-06-18 06:47:08,745 | INFO | epoch  8 | train loss 2.1352 | val loss 2.0730
+2026-06-18 06:47:55,169 | INFO | epoch  9 | train loss 2.0903 | val loss 2.0286
+2026-06-18 06:47:58,832 | INFO | saved loss history: results\frankenstein_history.json
+2026-06-18 06:47:58,832 | INFO | saved loss plot: results\frankenstein_loss.png
+2026-06-18 06:47:58,832 | INFO | saved final sample: results\frankenstein_sample.txt
+2026-06-18 06:47:58,924 | INFO | saved checkpoint: results\frankenstein.pt

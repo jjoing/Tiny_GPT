@@ -1,0 +1,56 @@
+{
+  "run_name": "alice_in_wonderland",
+  "dataset": "alice_in_wonderland",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.07991247177124,
+      "val_loss": 2.6947061657905578
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.595994050502777,
+      "val_loss": 2.503613741397858
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.482288830280304,
+      "val_loss": 2.4126122212409973
+    },
+    {
+      "epoch": 4,
+      "train_loss": 2.403913640975952,
+      "val_loss": 2.3406319332122805
+    },
+    {
+      "epoch": 5,
+      "train_loss": 2.33164217710495,
+      "val_loss": 2.260220378637314
+    },
+    {
+      "epoch": 6,
+      "train_loss": 2.2571021151542663,
+      "val_loss": 2.17238595366478
+    },
+    {
+      "epoch": 7,
+      "train_loss": 2.1765716576576235,
+      "val_loss": 2.0914133751392363
+    },
+    {
+      "epoch": 8,
+      "train_loss": 2.1017160749435426,
+      "val_loss": 2.019484231472015
+    },
+    {
+      "epoch": 9,
+      "train_loss": 2.035849597454071,
+      "val_loss": 1.950488020181656
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.9741979813575745,
+      "val_loss": 1.8976324355602265
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "run_name": "pride_and_prejudice",
+  "dataset": "pride_and_prejudice",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.1670617055892945,
+      "val_loss": 2.7585311555862426
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.6494655346870424,
+      "val_loss": 2.5618107318878174
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.5268544006347655,
+      "val_loss": 2.4689128971099854
+    },
+    {
+      "epoch": 4,
+      "train_loss": 2.448992726802826,
+      "val_loss": 2.403083252906799
+    },
+    {
+      "epoch": 5,
+      "train_loss": 2.394133810997009,
+      "val_loss": 2.329408731460571
+    },
+    {
+      "epoch": 6,
+      "train_loss": 2.3220355558395385,
+      "val_loss": 2.234400713443756
+    },
+    {
+      "epoch": 7,
+      "train_loss": 2.231864233016968,
+      "val_loss": 2.134897266626358
+    },
+    {
+      "epoch": 8,
+      "train_loss": 2.1555985140800478,
+      "val_loss": 2.0463201785087586
+    },
+    {
+      "epoch": 9,
+      "train_loss": 2.0869395542144775,
+      "val_loss": 1.9756251192092895
+    },
+    {
+      "epoch": 10,
+      "train_loss": 2.0322962057590486,
+      "val_loss": 1.9187237775325776
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+2026-06-18 06:56:42,732 | INFO | run name: sherlock_holmes
+2026-06-18 06:56:42,732 | INFO | dataset: sherlock_holmes
+2026-06-18 06:56:42,732 | INFO | data path: datasets\sherlock_holmes.txt
+2026-06-18 06:56:42,747 | INFO | log file: logs\sherlock_holmes.log
+2026-06-18 06:56:42,747 | INFO | device: cpu
+2026-06-18 06:56:42,747 | INFO | vocab size: 88
+2026-06-18 06:56:42,747 | INFO | parameters: 469,528
+2026-06-18 06:57:28,702 | INFO | epoch  0 | train loss 3.1170 | val loss 2.6817
+2026-06-18 06:58:10,347 | INFO | epoch  1 | train loss 2.5860 | val loss 2.5327
+2026-06-18 06:58:53,861 | INFO | epoch  2 | train loss 2.4820 | val loss 2.4618
+2026-06-18 06:59:36,687 | INFO | epoch  3 | train loss 2.4163 | val loss 2.4014
+2026-06-18 07:00:16,297 | INFO | epoch  4 | train loss 2.3550 | val loss 2.3328
+2026-06-18 07:00:56,584 | INFO | epoch  5 | train loss 2.2890 | val loss 2.2643
+2026-06-18 07:01:38,911 | INFO | epoch  6 | train loss 2.2269 | val loss 2.1950
+2026-06-18 07:02:21,656 | INFO | epoch  7 | train loss 2.1664 | val loss 2.1360
+2026-06-18 07:03:07,600 | INFO | epoch  8 | train loss 2.1181 | val loss 2.0847
+2026-06-18 07:03:47,346 | INFO | epoch  9 | train loss 2.0751 | val loss 2.0395
+2026-06-18 07:03:50,685 | INFO | saved loss history: results\sherlock_holmes_history.json
+2026-06-18 07:03:50,685 | INFO | saved loss plot: results\sherlock_holmes_loss.png
+2026-06-18 07:03:50,685 | INFO | saved final sample: results\sherlock_holmes_sample.txt
+2026-06-18 07:03:50,769 | INFO | saved checkpoint: results\sherlock_holmes.pt

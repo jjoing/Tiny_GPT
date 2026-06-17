@@ -69,6 +69,33 @@ _GUTENBERG_END_RE = re.compile(
     r"\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK.*?\*\*\*",
     re.IGNORECASE | re.DOTALL,
 )
+_SCENE_BREAK_RE = re.compile(r"^[ \t]*(?:\*[ \t]*){2,}$\n?", re.MULTILINE)
+_EXCESS_BLANK_LINES_RE = re.compile(r"\n{3,}")
+_REPEATED_SPACE_RE = re.compile(r"[ \t]{2,}")
+
+
+def collapse_repeated_spaces(text: str) -> str:
+    """Collapse runs of 2+ spaces/tabs into a single space.
+
+    Gutenberg transcriptions use long space runs to center title pages and
+    illustration captions and to align table-of-contents page numbers.
+    These never occur in actual prose, so at char level they're noise an
+    undertrained model latches onto -- the same failure mode as the
+    asterisk scene breaks handled by strip_scene_breaks.
+    """
+    return _REPEATED_SPACE_RE.sub(" ", text)
+
+
+def strip_scene_breaks(text: str) -> str:
+    """Drop typographic scene-break lines (e.g. "*    *    *    *").
+
+    Some Gutenberg transcriptions (Alice in Wonderland in particular) render
+    a printed scene divider as a line of repeated asterisks and spaces. At
+    char level this is a frequent, low-entropy pattern that an undertrained
+    model latches onto, producing generated text full of spaces and "*".
+    """
+    text = _SCENE_BREAK_RE.sub("", text)
+    return _EXCESS_BLANK_LINES_RE.sub("\n\n", text)
 
 
 def strip_gutenberg_boilerplate(text: str) -> str:
@@ -203,7 +230,9 @@ def read_text(
             download_dataset(dataset=dataset, data_dir=data_dir)
         else:
             download_text(str(data_path), url=get_dataset_spec(dataset).url)
-    return strip_gutenberg_boilerplate(data_path.read_text(encoding="utf-8"))
+    text = strip_gutenberg_boilerplate(data_path.read_text(encoding="utf-8"))
+    text = strip_scene_breaks(text)
+    return collapse_repeated_spaces(text)
 
 
 def encode_text(text: str, tokenizer: Optional[CharTokenizer] = None) -> Tuple[torch.Tensor, CharTokenizer]:
