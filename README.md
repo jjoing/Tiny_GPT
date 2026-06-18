@@ -279,23 +279,60 @@ Generated samples (`--start-text "The"`, full samples in
 `results/<run-name>_sample.txt`):
 
 **alice_in_wonderland** (val loss 1.51):
-> The popes opened of the had the windly saying to her, "I across
-> against this—the March Hare said nothing; never sleepy was snapped at
-> the house of the sparty.
+> The popes opened of the had the windly saying to her, “I across
+against this—the March Hare said nothing; never sleepy was snapped at
+the house of the sparty.
+>
+> It was.’”
+> 
+> “I can exactly say as ‘I shall be it away were,) you see, as the
+name, as it can’t help you: go not that I’m groom as it seemed found that it
+say,” (she folded, “that expectituned the distance. Come her cause of the cakes
+off.”
+> 
+> “What a tready off great to my
+else, I wonder?” Alice thought to herself “lips in the same a
+can,” said
+
 
 **pride_and_prejudice** (val loss 1.22):
 > The nembergand?PRIVII.
+> 
+> [Illustration]
 >
 > Mr. Darcy; and she is happiness of
 > which was to all dances what ahone liked with alf the treet, determined by his wish
+> mutify of the fond of any without every of the most have now to be voice house
+> by the perceiving each of London, was with spirits whose power
+> of talkily are ceniousl-had when promised the same weakfast, I always sorry doubt of
+> her seeing Mr. Collins at Bingley’s come answer, violal not very
+> resigns, could not manner to your have been of certa
 
 **frankenstein** (val loss 2.03, fewer epochs):
 > Then fan The ma peritzof axe mee int mitalous, end knowng as the kren
 > obMy, with sut thas and ral, I me sowerne which, in beet int but hand waith prey mumpaBentel-he of darean me anders thrice
+me! inng;
+> gow incete.9nt reveinFutirione. Waud mint ankey arne and in the mineas
+> chiste; me in andielon we uthe reteiath rese thers—he speard be
+> ve; bust med on bed thekn the swiset his the ford of nopin, tere wand neat to vo cowfavery
+> decouren, yoved bly hoourred budland andredinces be turnciche bof
+> ondelf f
 
 **sherlock_holmes** (val loss 2.04, fewer epochs):
 > ThesLond hich massois a knon he oCadore beelver bear stritt fer, I
-> hivens hice "nad and fat hat thishir ithe for thefich youl, this Hold llaved nof
+> hivens hice  “nad and fat hat thishir ithe for thefich youl, this Hold llaved nof
+hack?”
+> 
+> “Pand, stalf thall the asid Struthas cat recatited Want you maind hist, ast trind me on dord, weashe
+haverill py andlent the nast thougoost.
+>
+> “Mr matse suided caonon the  macgindde nof sid of exso and thing
+> thithre ling-rode hastingats high,’
+> by ithe it in.
+>
+> “Whay. Onin ching med ange to there fenget?”
+> 
+> “And thall hay ped that tos the sengs whe
 
 At these loss levels the model has learned English word shapes, common
 function words, and punctuation conventions, but not yet long-range
