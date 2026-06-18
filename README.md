@@ -6,14 +6,6 @@ literature, built to demonstrate the core architectural ideas behind GPT-2
 feed-forward blocks, residual connections, and layer normalization) at a
 scale that trains in minutes rather than days.
 
-> **Honesty note for the oral exam:** this is *not* the pretrained 117M-parameter
-> GPT-2 released by OpenAI. It is a small model that follows the same
-> architectural blueprint (a stack of pre-norm Transformer decoder blocks
-> with causal self-attention) but is trained from random initialization on a
-> much smaller, character-level vocabulary. See
-> [Differences from official GPT-2](#differences-from-official-gpt-2) for the
-> precise list of simplifications and why they were made.
-
 ## Project Overview
 
 | File | Description |
