@@ -82,21 +82,26 @@ stored as plain text in [`datasets/`](datasets/):
 
 | Dataset | Author | Raw characters | After cleanup | Vocabulary size |
 | --- | --- | --- | --- | --- |
-| `alice_in_wonderland.txt` | Lewis Carroll | 144,696 | 144,599 | 75 |
-| `frankenstein.txt` | Mary Shelley | 419,434 | 419,336 | 83 |
-| `pride_and_prejudice.txt` | Jane Austen | 728,846 | 728,713 | 91 |
-| `sherlock_holmes.txt` | Arthur Conan Doyle | 581,425 | 562,202 | 88 |
-| `tiny_shakespeare.txt` *(built-in baseline, not used for the assignment results below)* | — | 1,115,394 | 1,115,393 | 65 |
+| `alice_in_wonderland.txt` | Lewis Carroll | 144,696 | 143,881 | 74 |
+| `frankenstein.txt` | Mary Shelley | 419,434 | 419,141 | 83 |
+| `pride_and_prejudice.txt` | Jane Austen | 728,846 | 721,300 | 89 |
+| `sherlock_holmes.txt` | Arthur Conan Doyle | 581,425 | 561,851 | 88 |
+| `tiny_shakespeare.txt` *(built-in baseline, not used for the assignment results below)* | — | 1,115,394 | 1,115,375 | 65 |
 
-Each Gutenberg `.txt` file ships with a license header and footer wrapped in
-`*** START/END OF THE PROJECT GUTENBERG EBOOK ... ***` markers. Left in, this
-boilerplate pollutes the character vocabulary and wastes training signal on
-legal text. `strip_gutenberg_boilerplate()` in
-[data.py](data.py#L40-L55) finds these markers with a regex (handling the
-case where the marker itself wraps onto a second line, as in
-`sherlock_holmes.txt`) and keeps only the text between them. This single
-function is applied uniformly by `read_text()`, so it's a no-op on files
-that don't have Gutenberg markers (like `tiny_shakespeare.txt`).
+`read_text()` ([data.py](data.py)) runs every book through four cleanup
+passes before tokenization, each targeting a real artifact found in these
+Gutenberg transcriptions:
+
+| Pass | Removes | Why |
+| --- | --- | --- |
+| `strip_gutenberg_boilerplate()` | License header/footer wrapped in `*** START/END OF THE PROJECT GUTENBERG EBOOK ... ***` | Legal text isn't part of the book and pollutes the vocabulary. |
+| `strip_scene_breaks()` | Lines of repeated `*` used as scene dividers (`alice_in_wonderland.txt`) | At char level this is a frequent, low-entropy pattern — an undertrained model latches onto it and generates pages of asterisks. |
+| `strip_transcriber_markup()` | Inline typesetting directives like `/* NIND ... */` / `/* RIGHT ... */` wrapping letter text (`pride_and_prejudice.txt`) | Transcriber formatting instructions, not prose — but the text *inside* the wrapper is real and is kept. |
+| `collapse_repeated_spaces()` | Runs of 2+ spaces/tabs used to center title pages and align table-of-contents page numbers | Multi-space runs never occur in actual prose, so they're pure formatting noise that produces walls of spaces in generated samples. |
+
+Each function is a no-op on text that doesn't contain its target pattern,
+so all five files go through the same pipeline in `read_text()` regardless
+of which artifacts they actually contain.
 
 Each model is trained **separately on a single book**, so the model learns
 that book's vocabulary and style rather than an averaged mix.
@@ -247,7 +252,57 @@ python eval.py \
 
 ## Training Results
 
-<!-- RESULTS_PLACEHOLDER -->
+All four runs below used `--block-size 64 --batch-size 64 --num-heads 4
+--num-layers 4 --dropout 0.1 --lr 3e-4` on a laptop CPU.
+`alice_in_wonderland` and `pride_and_prejudice` were (re)trained after the
+dataset-cleanup passes above were added, for 30 epochs at `--emb-dim 128`.
+`frankenstein` and `sherlock_holmes` predate that cleanup fix but were
+unaffected by it (neither book contains scene-break asterisks or
+transcriber markup), and were trained for fewer epochs (10, `--emb-dim 96`)
+— their samples are correspondingly more garbled. The epoch counts are
+not matched across books; this table reports what was actually run, not a
+controlled comparison.
+
+| Dataset | Parameters | Epochs | Final train loss | Final val loss |
+| --- | --- | --- | --- | --- |
+| `alice_in_wonderland` | 884,554 | 30 | 1.0126 | 1.5108 |
+| `pride_and_prejudice` | 888,409 | 30 | 1.2694 | 1.2244 |
+| `frankenstein` | 534,099 | 10 | 2.0903 | 2.0286 |
+| `sherlock_holmes` | 535,064 | 10 | 2.0751 | 2.0395 |
+
+Loss curves: [alice_in_wonderland](results/alice_in_wonderland_loss.png) ·
+[pride_and_prejudice](results/pride_and_prejudice_loss.png) ·
+[frankenstein](results/frankenstein_loss.png) ·
+[sherlock_holmes](results/sherlock_holmes_loss.png)
+
+Generated samples (`--start-text "The"`, full samples in
+`results/<run-name>_sample.txt`):
+
+**alice_in_wonderland** (val loss 1.51):
+> The popes opened of the had the windly saying to her, "I across
+> against this—the March Hare said nothing; never sleepy was snapped at
+> the house of the sparty.
+
+**pride_and_prejudice** (val loss 1.22):
+> The nembergand?PRIVII.
+>
+> Mr. Darcy; and she is happiness of
+> which was to all dances what ahone liked with alf the treet, determined by his wish
+
+**frankenstein** (val loss 2.03, fewer epochs):
+> Then fan The ma peritzof axe mee int mitalous, end knowng as the kren
+> obMy, with sut thas and ral, I me sowerne which, in beet int but hand waith prey mumpaBentel-he of darean me anders thrice
+
+**sherlock_holmes** (val loss 2.04, fewer epochs):
+> ThesLond hich massois a knon he oCadore beelver bear stritt fer, I
+> hivens hice "nad and fat hat thishir ithe for thefich youl, this Hold llaved nof
+
+At these loss levels the model has learned English word shapes, common
+function words, and punctuation conventions, but not yet long-range
+grammatical or narrative coherence — consistent with a few-million-token,
+sub-1M-parameter char-level model trained for only 10–30 epochs on a CPU.
+Training longer (the "Recommended (GPU)" hyperparameters above) closes
+this gap considerably.
 
 ## Notes
 
