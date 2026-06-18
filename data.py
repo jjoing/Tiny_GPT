@@ -72,6 +72,21 @@ _GUTENBERG_END_RE = re.compile(
 _SCENE_BREAK_RE = re.compile(r"^[ \t]*(?:\*[ \t]*){2,}$\n?", re.MULTILINE)
 _EXCESS_BLANK_LINES_RE = re.compile(r"\n{3,}")
 _REPEATED_SPACE_RE = re.compile(r"[ \t]{2,}")
+_TRANSCRIBER_MARKUP_OPEN_RE = re.compile(r"/\*\s*(?:[A-Z]{2,}\s+)?")
+_TRANSCRIBER_MARKUP_CLOSE_RE = re.compile(r"\s*\*/")
+
+
+def strip_transcriber_markup(text: str) -> str:
+    """Drop transcriber directive wrappers like "/* NIND ... */" or "/* RIGHT ... */".
+
+    Some Gutenberg transcriptions (Pride and Prejudice's letters) wrap real
+    prose -- a letter's salutation or dateline -- in inline typesetting
+    instructions (no-indent, right-align) instead of applying them. Only
+    the "/* DIRECTIVE" / "*/" wrapper syntax is noise; the text inside is
+    real content and must be kept.
+    """
+    text = _TRANSCRIBER_MARKUP_OPEN_RE.sub("", text)
+    return _TRANSCRIBER_MARKUP_CLOSE_RE.sub("", text)
 
 
 def collapse_repeated_spaces(text: str) -> str:
@@ -232,6 +247,7 @@ def read_text(
             download_text(str(data_path), url=get_dataset_spec(dataset).url)
     text = strip_gutenberg_boilerplate(data_path.read_text(encoding="utf-8"))
     text = strip_scene_breaks(text)
+    text = strip_transcriber_markup(text)
     return collapse_repeated_spaces(text)
 
 

@@ -19,3 +19,44 @@
 2026-06-18 06:39:49,626 | INFO | saved loss plot: results\alice_in_wonderland_loss.png
 2026-06-18 06:39:49,626 | INFO | saved final sample: results\alice_in_wonderland_sample.txt
 2026-06-18 06:39:49,734 | INFO | saved checkpoint: results\alice_in_wonderland.pt
+2026-06-18 07:20:12,175 | INFO | run name: alice_in_wonderland
+2026-06-18 07:20:12,175 | INFO | dataset: alice_in_wonderland
+2026-06-18 07:20:12,175 | INFO | data path: datasets\alice_in_wonderland.txt
+2026-06-18 07:20:12,175 | INFO | log file: logs\alice_in_wonderland.log
+2026-06-18 07:20:12,175 | INFO | device: cpu
+2026-06-18 07:20:12,175 | INFO | vocab size: 74
+2026-06-18 07:20:12,175 | INFO | parameters: 819,018
+2026-06-18 07:24:04,039 | INFO | epoch  0 | train loss 2.6211 | val loss 2.3037
+2026-06-18 07:27:53,127 | INFO | epoch  1 | train loss 2.1659 | val loss 1.9832
+2026-06-18 07:31:45,730 | INFO | epoch  2 | train loss 1.9119 | val loss 1.7995
+2026-06-18 07:35:29,258 | INFO | epoch  3 | train loss 1.7555 | val loss 1.6896
+2026-06-18 07:39:13,083 | INFO | epoch  4 | train loss 1.6497 | val loss 1.6262
+2026-06-18 07:42:51,894 | INFO | epoch  5 | train loss 1.5697 | val loss 1.5742
+2026-06-18 07:46:30,955 | INFO | epoch  6 | train loss 1.5018 | val loss 1.5454
+2026-06-18 07:50:11,693 | INFO | epoch  7 | train loss 1.4519 | val loss 1.5166
+2026-06-18 07:53:51,050 | INFO | epoch  8 | train loss 1.4103 | val loss 1.4912
+2026-06-18 07:57:28,859 | INFO | epoch  9 | train loss 1.3734 | val loss 1.4708
+2026-06-18 08:01:16,848 | INFO | epoch 10 | train loss 1.3382 | val loss 1.4651
+2026-06-18 08:05:02,644 | INFO | epoch 11 | train loss 1.3120 | val loss 1.4523
+2026-06-18 08:08:50,569 | INFO | epoch 12 | train loss 1.2852 | val loss 1.4421
+2026-06-18 08:12:27,449 | INFO | epoch 13 | train loss 1.2619 | val loss 1.4405
+2026-06-18 08:16:03,481 | INFO | epoch 14 | train loss 1.2370 | val loss 1.4442
+2026-06-18 08:19:39,545 | INFO | epoch 15 | train loss 1.2185 | val loss 1.4403
+2026-06-18 08:23:16,320 | INFO | epoch 16 | train loss 1.1962 | val loss 1.4438
+2026-06-18 08:26:52,901 | INFO | epoch 17 | train loss 1.1791 | val loss 1.4499
+2026-06-18 08:30:28,586 | INFO | epoch 18 | train loss 1.1631 | val loss 1.4602
+2026-06-18 08:34:04,424 | INFO | epoch 19 | train loss 1.1471 | val loss 1.4492
+2026-06-18 08:37:45,722 | INFO | epoch 20 | train loss 1.1301 | val loss 1.4541
+2026-06-18 08:41:20,875 | INFO | epoch 21 | train loss 1.1142 | val loss 1.4558
+2026-06-18 08:44:56,619 | INFO | epoch 22 | train loss 1.0984 | val loss 1.4602
+2026-06-18 08:48:33,478 | INFO | epoch 23 | train loss 1.0866 | val loss 1.4686
+2026-06-18 08:52:18,567 | INFO | epoch 24 | train loss 1.0722 | val loss 1.4771
+2026-06-18 08:55:55,206 | INFO | epoch 25 | train loss 1.0591 | val loss 1.4792
+2026-06-18 08:59:31,830 | INFO | epoch 26 | train loss 1.0483 | val loss 1.4861
+2026-06-18 09:03:08,089 | INFO | epoch 27 | train loss 1.0365 | val loss 1.4914
+2026-06-18 09:06:51,640 | INFO | epoch 28 | train loss 1.0236 | val loss 1.5015
+2026-06-18 09:10:31,566 | INFO | epoch 29 | train loss 1.0126 | val loss 1.5108
+2026-06-18 09:10:37,482 | INFO | saved loss history: results\alice_in_wonderland_history.json
+2026-06-18 09:10:37,482 | INFO | saved loss plot: results\alice_in_wonderland_loss.png
+2026-06-18 09:10:37,482 | INFO | saved final sample: results\alice_in_wonderland_sample.txt
+2026-06-18 09:10:37,651 | INFO | saved checkpoint: results\alice_in_wonderland.pt
